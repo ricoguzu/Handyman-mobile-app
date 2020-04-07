@@ -9,13 +9,13 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ServiceActivity extends AppCompatActivity {
+public class CustomerServiceActivity extends AppCompatActivity {
     private Button mLogout,mSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service);
+        setContentView(R.layout.activity_customer_service);
 
         mLogout   =   (Button) findViewById(R.id.logout);
         mSettings = (Button) findViewById(R.id.settings);
@@ -24,7 +24,7 @@ public class ServiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(ServiceActivity.this, MainActivity.class);
+                Intent intent = new Intent(CustomerServiceActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 return;
@@ -34,11 +34,12 @@ public class ServiceActivity extends AppCompatActivity {
         mSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ServiceActivity.this, CustomerSettingsActivity.class);
+                Intent intent = new Intent(CustomerServiceActivity.this, CustomerSettingsActivity.class);
                 startActivity(intent);
                 finish();
                 return;
             }
         });
     }
+
 }

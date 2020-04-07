@@ -18,8 +18,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.sql.DatabaseMetaData;
-
 public class HandymanLoginActivity extends AppCompatActivity {
     //call the buttons and text
     private EditText mEmail, mPassword;
@@ -33,7 +31,7 @@ public class HandymanLoginActivity extends AppCompatActivity {
             //check for user and take to the next page
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
-                Intent intent = new Intent(HandymanLoginActivity.this, ServiceActivity.class);
+                Intent intent = new Intent(HandymanLoginActivity.this, CustomerServiceActivity.class);
                 startActivity(intent);
                 finish();
                 return;

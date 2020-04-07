@@ -22,17 +22,19 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
     //call the buttons and text
     private EditText mEmail, mPassword;
+
     private Button mLogin, mRegister;
 
     //import classes
     private FirebaseAuth mAuth;
+
     private FirebaseAuth.AuthStateListener firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
         @Override
         public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
             //check for user and take to the next page
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             if (user != null) {
-                Intent intent = new Intent(CustomerLoginActivity.this, ServiceActivity.class);
+                Intent intent = new Intent(CustomerLoginActivity.this, CustomerServiceActivity.class);
                 startActivity(intent);
                 finish();
                 return;
